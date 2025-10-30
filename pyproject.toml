@@ -1,7 +1,3 @@
-[build-system]
-requires = ["hatchling >= 1.26"]
-build-backend = "hatchling.build"
-
 [project]
 name = "qsopop"
 version = "0.0b1"
@@ -41,3 +37,7 @@ keywords = ["quasars", "astrophysics", "population", "luminosity function", "mod
 [project.urls]
 Repository = "https://github.com/cosmic-dawn-group/qsopop"
 Issues = "https://github.com/cosmic-dawn-group/qsopop/issues"
+
+[build-system]
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
