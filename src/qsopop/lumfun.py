@@ -1,26 +1,23 @@
 #!/usr/bin/env python
 
-import numpy as np
 import emcee
+import numpy as np
 from astropy import units
 from scipy import integrate
 from scipy.interpolate import interp1d
-from astropy.cosmology import FlatLambdaCDM
-from astropy import constants as const
 
-import matplotlib.pyplot as plt
 
 # Basic functionality needed for this class
 def interp_dVdzdO(redsh_range, cosmo):
     """Interpolate the differential comoving solid volume element
-    :math:`(dV/dz){d\Omega}` over the specified redshift range
+    :math:`(dV/dz){d\\Omega}` over the specified redshift range
     zrange = :math:`(z_1,z_2)`.
 
     This interpolation speeds up volume (redshift, solid angle) integrations
     for the luminosity function without significant loss in accuracy.
 
     The resolution of the redshift array, which will be interpolated is
-    :math:`\Delta z=0.025`.
+    :math:`\\Delta z=0.025`.
 
     :param redsh_range: Redshift range for interpolation
     :type redsh_range: tuple
@@ -579,7 +576,7 @@ class LuminosityFunction(object):
         :type redsh: Redshift for evaluation
         :param dVdzdO: Differential comoving solid volume element
         :type dVdzdO: function
-        :return: Returns :math:`\Phi(L,z)\times (dV/dz){d\Omega}`
+        :return: Returns :math:`\\Phi(L,z)\times (dV/dz){d\\Omega}`
         :rtype: float or numpy.ndarray
         """
 
@@ -597,7 +594,7 @@ class LuminosityFunction(object):
         :type dVdzdO: function
         :param selfun: Selection function
         :type selfun: atelier.selfun.QsoSelectionFunction
-        :return: Returns :math:`\Phi(L,z)\times (dV/dz){d\Omega}`
+        :return: Returns :math:`\\Phi(L,z)\times (dV/dz){d\\Omega}`
         :rtype: float or numpy.ndarray
         """
 
@@ -623,7 +620,7 @@ class LuminosityFunction(object):
         :param cosmology: Cosmology (default = None)
         :type cosmology: astropy.cosmology.Cosmology
         :param kwargs:
-        :return: :math:`N = \int\int\Phi(L,z) (dV/(dz d\Omega)) dL dz`
+        :return: :math:`N = \\int\\int\\Phi(L,z) (dV/(dz d\\Omega)) dL dz`
         :rtype: float
         """
 
@@ -705,7 +702,7 @@ class LuminosityFunction(object):
         :param cosmology: Cosmology (default = None)
         :type cosmology: astropy.cosmology.Cosmology
         :param kwargs:
-        :return: :math:`N = \int\int\Phi(L,z) (dV/(dz d\Omega)) dL dz`
+        :return: :math:`N = \\int\\int\\Phi(L,z) (dV/(dz d\\Omega)) dL dz`
         :rtype: float
         """
 
@@ -775,7 +772,7 @@ class LuminosityFunction(object):
         :type redsh: Redshift for evaluation
         :param dVdzdO: Differential comoving solid volume element
         :type dVdzdO: function
-        :return: Returns :math:`\Phi(L,z)\times (dV/dz){d\Omega}`
+        :return: Returns :math:`\\Phi(L,z)\times (dV/dz){d\\Omega}`
         :rtype: float or numpy.ndarray
         """
 
@@ -788,7 +785,7 @@ class LuminosityFunction(object):
         :param lum_range:
         :param redsh:
         :param dVdzdO:
-        :return: :math:`\int \Phi(L,z) L (dV/dz){d\Omega} dL`
+        :return: :math:`\\int \\Phi(L,z) L (dV/dz){d\\Omega} dL`
         """
 
         # Get keyword arguments for the integration
@@ -909,7 +906,7 @@ class LuminosityFunction(object):
         :param app2absmag: Function to convert between different magnitudes, argument is x = (magnitude, redshift) (default = indentity function w.r.t. magnitude)
         :type app2absmag: function
         :param kwargs:
-        :return: :math:`\int \Phi(L,z) (dV/dz){d\Omega} dL`
+        :return: :math:`\\int \\Phi(L,z) (dV/dz){d\\Omega} dL`
         :rtype: float
         """
 
@@ -943,7 +940,7 @@ class LuminosityFunction(object):
         :param lum_range: Luminosity range
         :type lum_range: tuple
         :param kwargs:
-        :return: :math:`\int \Phi(L,z) dL`
+        :return: :math:`\\int \\Phi(L,z) dL`
         :rtype: float
         """
 
@@ -1273,7 +1270,7 @@ class DoublePowerLawLF(LuminosityFunction):
 
     def calc_ionizing_emissivity_at_1450A(self, redsh, lum_range, **kwargs):
         """Calculate the ionizing emissivity at rest-frame 1450A,
-        :math:`\epsilon_{1450}`, in units of
+        :math:`\\epsilon_{1450}`, in units of
         erg s^-1 Hz^-1 Mpc^-3.
 
         This function integrates the luminosity function at redshift "redsh"
@@ -1458,7 +1455,7 @@ class SmoothDoublePowerLawLF(LuminosityFunction):
 
     def calc_ionizing_emissivity_at_1450A(self, redsh, lum_range, **kwargs):
         """Calculate the ionizing emissivity at rest-frame 1450A,
-        :math:`\epsilon_{1450}`, in units of
+        :math:`\\epsilon_{1450}`, in units of
         erg s^-1 Hz^-1 Mpc^-3.
 
         This function integrates the luminosity function at redshift "redsh"
@@ -1642,7 +1639,7 @@ class SinglePowerLawLF(LuminosityFunction):
 
     def calc_ionizing_emissivity_at_1450A(self, redsh, lum_range, **kwargs):
         """Calculate the ionizing emissivity at rest-frame 1450A,
-        :math:`\epsilon_{1450}`, in units of
+        :math:`\\epsilon_{1450}`, in units of
         erg s^-1 Hz^-1 Mpc^-3.
 
         This function integrates the luminosity function at redshift "redsh"
